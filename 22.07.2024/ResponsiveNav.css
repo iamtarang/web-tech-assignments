@@ -1,0 +1,16 @@
+ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+header {
+    padding: 0.1%;
+    background-color: greenyellow;
+}
+
+@media (max-width : 800px) {
+    ul {
+        flex-direction: column;
+    }
+}

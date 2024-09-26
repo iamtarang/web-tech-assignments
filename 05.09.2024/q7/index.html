@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Fetch using jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #weather-data {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather API Fetch using jQuery</h1>
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button id="fetch-weather">Get Weather</button>
+        <div id="weather-data"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const apiKey = 'af36ee408b581f8c037229d3bbc2fd48'; // Replace with your OpenWeatherMap API key
+
+            $('#fetch-weather').click(function () {
+                const city = $('#city-input').val();
+                if (!city) {
+                    alert('Please enter a city name');
+                    return;
+                }
+
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        const weatherHtml = `
+                            <h2>Weather in ${data.name}</h2>
+                            <p>Temperature: ${data.main.temp}°C</p>
+                            <p>Feels like: ${data.main.feels_like}°C</p>
+                            <p>Humidity: ${data.main.humidity}%</p>
+                            <p>Wind Speed: ${data.wind.speed} m/s</p>
+                            <p>Weather: ${data.weather[0].description}</p>
+                        `;
+                        $('#weather-data').html(weatherHtml);
+                    },
+                    error: function (xhr, status, error) {
+                        $('#weather-data').html('<p>Error fetching weather data. Please try again.</p>');
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

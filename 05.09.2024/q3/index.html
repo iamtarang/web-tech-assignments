@@ -1,0 +1,41 @@
+<html lang="en"></html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>From Data</title>
+</head>
+
+<body>
+	<div>
+		<form action="" id="form">
+			<label for="name">Name</label>
+			<input type="text" />
+			<br>
+			<label for="Phone">Phone</label>
+			<input type="tel" />
+			<br>
+			<label for="Checkbox">Subjects</label><br>
+			<input type="checkbox" id="web" name="web" value="">
+			<label for="web" id="enable">Web Tech</label>
+			<input type="checkbox" id="dmdw" name="dmdw" value="">
+			<label for="dmdw" id="enable">Data Mining</label>
+			<br>
+			<label for="course">Select Course</label>
+			<select name="course">
+				<option value="be">BE</option>
+				<option value="mca">MCA</option>
+			</select>
+			<br>
+			<button id="submit-btn">Get Data</button>
+		</form>
+	</div>
+	<div>
+		<h2>Output:</h2>
+		<p id="output"></p>
+	</div>
+	<script src="../jquery-3.7.1.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>

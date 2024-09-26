@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SideNav</title>
+
+	<style>
+		body {
+			margin: 0px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+
+		/* unvisited link */
+		a:link, a:visited {
+			color: white;
+		}
+
+		/* mouse over link */
+		a:hover {
+			color: rgb(255, 166, 166);
+		}
+
+		/* selected link */
+		a:active {
+			color: rebeccapurple;
+		}
+
+		.navbar {
+			height: 2rem;
+			text-align: center;
+			border: 2px solid white;
+			position: sticky;
+			padding: 1%;
+			background-color: cornflowerblue;
+		}
+
+		.header {
+			/* padding: auto; */
+			margin: auto;
+		}
+
+		.content {
+			display: flex;
+		}
+
+		.sidenav {
+			padding: 1%;
+			width: 30%;
+			height: 100vh;
+			border: 2px solid white;
+			background-color: cornflowerblue;
+		}
+
+		.main {
+			padding: 1%;
+			width: 70%;
+			height: 100vh;
+			border: 2px solid white;
+			text-align: center;
+		}
+
+		.list-items {
+			margin: 2%;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<h3 class="header">
+			Header
+		</h3>
+	</nav>
+	<div class="content">
+		<aside class="sidenav">
+			<ul>
+				<li class="list-items">
+					<a class="nav-items" href="/Assignments/18.07.2024/staticWebsite.html">Home</a>
+				</li>
+				<li class="list-items">
+					<a class="nav-items" href="/Assignments/18.07.2024/aboutUs.html">About Us</a>
+				</li>
+				<li class="list-items">
+					<a class="nav-items" href="/Assignments/18.07.2024/ContactUs.html">Contact Us</a>
+				</li>
+			</ul>
+		</aside>
+		<main class="main">
+			<h1>
+				Homepage
+			</h1>
+		</main>
+	</div>
+</body>
+
+</html>

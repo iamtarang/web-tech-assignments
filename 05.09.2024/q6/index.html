@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traversal Methods Demo</title>
+    <script src="../jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>jQuery Traversal Methods Demo</h1>
+        <ul id="parent-list">
+            <li>Item 1
+                <ul>
+                    <li>Subitem 1.1</li>
+                    <li>Subitem 1.2</li>
+                </ul>
+            </li>
+            <li>Item 2
+                <ul>
+                    <li>Subitem 2.1</li>
+                    <li>Subitem 2.2</li>
+                </ul>
+            </li>
+            <li>Item 3</li>
+        </ul>
+        <button id="run-demo">Run Traversal Demo</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#run-demo').click(function () {
+                // Reset highlights
+                $('.highlight').removeClass('highlight');
+                $('#result').empty();
+
+                // 1. children()
+                $('#parent-list').children().addClass('highlight');
+                $('#result').append("<p>1. Highlighted direct children of #parent-list</p>");
+
+                // 2. find()
+                $('#parent-list').find('li').eq(2).addClass('highlight');
+                $('#result').append("<p>2. Found and highlighted the 3rd li element</p>");
+
+                // 3. parent()
+                $('li:contains("Subitem 1.1")').parent().addClass('highlight');
+                $('#result').append("<p>3. Highlighted parent of 'Subitem 1.1'</p>");
+
+                // 4. siblings()
+                $('li:contains("Item 2")').siblings().addClass('highlight');
+                $('#result').append("<p>4. Highlighted siblings of 'Item 2'</p>");
+
+                // 5. next() and prev()
+                $('li:contains("Item 2")').next().addClass('highlight');
+                $('li:contains("Item 2")').prev().addClass('highlight');
+                $('#result').append("<p>5. Highlighted next and previous siblings of 'Item 2'</p>");
+
+                // 6. closest()
+                $('li:contains("Subitem 2.1")').closest('ul').addClass('highlight');
+                $('#result').append("<p>6. Highlighted closest ul to 'Subitem 2.1'</p>");
+            });
+        });
+    </script>
+</body>
+
+</html>
