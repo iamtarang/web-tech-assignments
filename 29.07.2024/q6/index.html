@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowfall Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB;
+        }
+
+        .snowflake {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const snowflakesCount = 100;
+        const snowflakes = [];
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            snowflake.style.opacity = Math.random();
+            snowflake.style.width = snowflake.style.height = `${Math.random() * 10 + 5}px`;
+
+            document.body.appendChild(snowflake);
+
+            return {
+                element: snowflake,
+                speed: Math.random() * 1 + 0.5,
+                posY: 0
+            };
+        }
+
+        function moveSnowflake(snowflake) {
+            snowflake.posY += snowflake.speed;
+            snowflake.element.style.top = `${snowflake.posY}px`;
+
+            if (snowflake.posY > window.innerHeight) {
+                snowflake.posY = -10;
+                snowflake.element.style.left = `${Math.random() * 100}vw`;
+            }
+        }
+
+        function animateSnowfall() {
+            snowflakes.forEach(moveSnowflake);
+            requestAnimationFrame(animateSnowfall);
+        }
+
+        for (let i = 0; i < snowflakesCount; i++) {
+            snowflakes.push(createSnowflake());
+        }
+
+        animateSnowfall();
+    </script>
+</body>
+
+</html>

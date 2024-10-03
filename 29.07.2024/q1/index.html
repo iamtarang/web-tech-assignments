@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #video-container {
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="myVideo" width="640" height="360" controls src="file:///C:/Users/dell/Videos/2023-03-16 14-12-52.mkv">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div>
+        <button onclick="togglePlayPause()">Play/Pause</button>
+        <button onclick="changeSize('small')">Small</button>
+        <button onclick="changeSize('normal')">Normal</button>
+        <button onclick="changeSize('large')">Large</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

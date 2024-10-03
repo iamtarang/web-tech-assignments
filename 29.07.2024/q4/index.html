@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Position Finder</title>
+</head>
+
+<body>
+    <h1>Vowel Position Finder</h1>
+    <input type="text" id="wordInput" placeholder="Enter a word">
+    <button onclick="findVowelPositions()">Find</button>
+    <p id="result"></p>
+
+    <script>
+        function findVowelPositions() {
+            const word = document.getElementById('wordInput').value.toLowerCase();
+            const firstA = word.indexOf('a');
+            const lastA = word.lastIndexOf('a');
+
+            if (firstA === -1 || lastA === -1) {
+                document.getElementById('result').textContent = "The word doesn't contain the vowel 'a'.";
+            } else {
+                const substring = word.substring(firstA + 1, lastA);
+                document.getElementById('result').textContent = `First 'a' at position ${firstA + 1}, last 'a' at position ${lastA + 1}. Substring between: "${substring}".`;
+            }
+        }
+    </script>
+</body>
+
+</html>

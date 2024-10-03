@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Data Display</title>
-    <script src="../jquery-3.7.1.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,18 +28,9 @@
     <h1>JSON Data Display</h1>
     <button id="load-data">Load JSON Data</button>
     <div id="json-data"></div>
-
-    <script>
-        $(document).ready(function () {
-            $('#load-data').click(function () {
-                $.getJSON('./MOCK_DATA.json', function (data) {
-                    $('#json-data').html('<pre>' + JSON.stringify(data, null, 2) + '</pre>');
-                }).fail(function () {
-                    $('#json-data').html('Error: Unable to load JSON data');
-                });
-            });
-        });
-    </script>
+    
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script src="./script.js" />
 </body>
 
 </html>

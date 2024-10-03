@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event Handler</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #output {
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output">Press any key</div>
+
+    <script>
+        document.addEventListener('keydown', function (event) {
+            const key = event.key.toLowerCase();
+            const keyCode = event.keyCode;
+            let message = `Key pressed: ${key}, Key code: ${keyCode}`;
+
+            if (['a', 'e', 'i', 'o', 'u'].includes(key)) {
+                message += ". Vowel pressed!";
+            }
+
+            document.getElementById('output').textContent = message;
+        });
+
+        document.addEventListener('keyup', function () {
+            document.body.style.backgroundColor = 'yellow';
+        });
+    </script>
+</body>
+
+</html>
